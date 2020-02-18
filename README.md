@@ -19,7 +19,7 @@ git clone git@github.com:coppolam/ros_mav_swarm_simulator.git
 
 ## Build
 ```
-cd ros_swarm_simulator
+cd ros_mav_swarm_simulator
 catkin_make
 source devel/setup.bash
 ```
