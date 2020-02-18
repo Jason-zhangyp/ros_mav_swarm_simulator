@@ -25,6 +25,11 @@ source devel/setup.bash
 ```
 
 ## Launch
+There are other launch files with other number of MAVs (check mav_controller/launch)
+
+To launch an example with 3 MAVs:
 ```
 roslaunch mav_controller 3mavs.launch
 ```
+
+In this default example, the MAVs will move around in various triangle patterns.
