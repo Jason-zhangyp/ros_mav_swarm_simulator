@@ -1,0 +1,135 @@
+<!-- <?xml version="1.0"?> -->
+
+<launch>
+	<arg name="model"  default="$(find hector_quadrotor_description)/urdf/quadrotor.gazebo.xacro" />
+	<arg name="name1"  default="uav1" />
+	<arg name="name2"  default="uav2" />
+	<arg name="name3"  default="uav3" />
+	<arg name="name4"  default="uav4" />
+	<arg name="name5"  default="uav5" />
+	<arg name="name6"  default="uav6" />
+	<arg name="name7"  default="uav7" />
+	<arg name="name8"  default="uav8" />
+	<arg name="name9"  default="uav9" />
+	
+	<!-- Start Gazebo with wg world running in (max) realtime -->
+	<include file="$(find mav_controller)/worlds/normal.launch"/>
+
+	<group ns="uav1">
+		<include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+			<arg name="name" value="$(arg name1)" />
+			<arg name="tf_prefix" value="$(arg name1)" />
+			<arg name="model" value="$(arg model)" />
+			<arg name="x" value="-1.0" />
+			<arg name="y" value="1.0" />
+		</include>		
+		<node name="mav_ctrl_1" pkg="mav_controller" type="behaviour" output="screen"> 
+			<param name="id" value="1"/>
+		</node>
+	</group>
+
+	<group ns="uav2">
+		<include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+			<arg name="name" value="$(arg name2)" />
+			<arg name="tf_prefix" value="$(arg name2)" />
+			<arg name="model" value="$(arg model)" />
+			<arg name="x" value="0.4" />
+			<arg name="y" value="1" />
+		</include>
+		<node name="mav_ctrl_2" pkg="mav_controller" type="behaviour" output="screen"> 
+			<param name="id" value="2"/>
+		</node>
+	</group>
+
+	<group ns="uav3">
+		<include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+			<arg name="name" value="$(arg name3)" />
+			<arg name="tf_prefix" value="$(arg name3)" />
+			<arg name="model" value="$(arg model)" />
+			<arg name="x" value="0" />
+			<arg name="y" value="0" />
+		</include>
+		<node name="mav_ctrl_3" pkg="mav_controller" type="behaviour" output="screen"> 
+			<param name="id" value="3"/>
+		</node>
+	</group>
+
+	<group ns="uav4">
+		<include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+			<arg name="name" value="$(arg name4)" />
+			<arg name="tf_prefix" value="$(arg name4)" />
+			<arg name="model" value="$(arg model)" />
+			<arg name="x" value="0.5" />
+			<arg name="y" value="-0.5" />
+		</include>
+		<node name="mav_ctrl_4" pkg="mav_controller" type="behaviour" output="screen"> 
+			<param name="id" value="4"/>
+		</node>
+	</group>
+	
+	<group ns="uav5">
+		<include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+			<arg name="name" value="$(arg name5)" />
+			<arg name="tf_prefix" value="$(arg name5)" />
+			<arg name="model" value="$(arg model)" />
+			<arg name="x" value="-1" />
+			<arg name="y" value="-1" />
+		</include>
+		<node name="mav_ctrl_5" pkg="mav_controller" type="behaviour" output="screen"> 
+			<param name="id" value="5"/>
+		</node>
+	</group>
+
+	<group ns="uav6">
+		<include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+			<arg name="name" value="$(arg name6)" />
+			<arg name="tf_prefix" value="$(arg name6)" />
+			<arg name="model" value="$(arg model)" />
+			<arg name="x" value="2.5" />
+			<arg name="y" value="2.5" />
+		</include>
+		<node name="mav_ctrl_6" pkg="mav_controller" type="behaviour" output="screen"> 
+			<param name="id" value="6"/>
+		</node>
+	</group>
+
+	<group ns="uav7">
+		<include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+			<arg name="name" value="$(arg name7)" />
+			<arg name="tf_prefix" value="$(arg name7)" />
+			<arg name="model" value="$(arg model)" />
+			<arg name="x" value="2.5" />
+			<arg name="y" value="-1.5" />
+		</include>
+		<node name="mav_ctrl_7" pkg="mav_controller" type="behaviour" output="screen"> 
+			<param name="id" value="7"/>
+		</node>
+	</group>
+
+	<group ns="uav8">
+		<include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+			<arg name="name" value="$(arg name8)" />
+			<arg name="tf_prefix" value="$(arg name8)" />
+			<arg name="model" value="$(arg model)" />
+			<arg name="x" value="1.5" />
+			<arg name="y" value="1.5" />
+		</include>
+		<node name="mav_ctrl_8" pkg="mav_controller" type="behaviour" output="screen"> 
+			<param name="id" value="8"/>
+		</node>
+	</group>
+
+	<group ns="uav9">
+		<include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+			<arg name="name" value="$(arg name9)" />
+			<arg name="tf_prefix" value="$(arg name9)" />
+			<arg name="model" value="$(arg model)" />
+			<arg name="x" value="1.5" />
+			<arg name="y" value="-1.5" />
+		</include>
+		<node name="mav_ctrl_9" pkg="mav_controller" type="behaviour" output="screen"> 
+			<param name="id" value="9"/>
+		</node>
+	</group>
+
+</launch>

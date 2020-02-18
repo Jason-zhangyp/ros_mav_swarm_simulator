@@ -1,0 +1,6 @@
+rospack*
+# ROS remains
+devel
+build
+log
+simdata

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<arg name="model"  default="$(find hector_quadrotor_description)/urdf/quadrotor.gazebo.xacro" />
+	
+	<arg name="avoid"  default="1" />
+	<arg name="msize"  default="0.5" />
+	<arg name="asize"  default="2.0" />
+	<arg name="spread" default="1.0" />
+	<arg name="stl"    default="normal" />	
+	<arg name="name1"  default="uav1" />
+
+	<group ns="$(arg name1)">
+		<include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+			<arg name="name" value="$(arg name1)" />
+			<arg name="tf_prefix" value="$(arg name1)" />
+			<arg name="model" value="$(arg model)" />
+			<arg name="x" value="-$(arg spread)" />
+			<arg name="y" value="$(arg asize)" />
+		</include>
+		<node name="mav_ctrl_1" pkg="mav_controller" type="follow_node" output="screen"> 
+			<param name="name" value="$(arg name1)"/>
+			<param name="arenaside" value="$(arg asize)"/>
+			<param name="mavsize" value="$(arg msize)"/>
+			<param name="avoidance" value="$(arg avoid)"/>
+			<param name="style" value="$(arg stl)"/>
+		</node>
+	</group>
+
+</launch>

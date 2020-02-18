@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!-- To launch >> roslaunch experiment_fast mavs:=2 style:=fast
+	
+	mavs options: 2, 3
+	style options: normal, fast
+-->
+
+<launch>
+	<arg name="mavs"/>
+	<arg name="arena"/>
+	<arg name="style"/>
+	<arg name="mavsize"/>
+	<arg name="avoidance"/>
+	<arg name="path"/>
+
+	<include file="$(find mav_controller)/worlds/$(arg style).launch">
+		<arg name="paused" value="false"/>
+		<arg name="use_sim_time" value="true"/>
+		<arg name="debug" value="false"/>
+	</include>
+
+	<include file="$(find mav_controller)/launch/follower.launch">
+		<arg name="model" default="$(find hector_quadrotor_description)/urdf/quadrotor.gazebo.xacro" />
+		<arg name="asize" default="$(arg arena)" />
+		<arg name="msize" default="$(arg mavsize)" />
+		<arg name="avoid" default="$(arg avoidance)" />
+		<arg name="stl" default="$(arg style)" />
+		<arg name="spread" default="$(arg mavsize)" />
+	</include>
+
+	<include file="$(find mav_controller)/launch/dumbmav.launch">
+		<arg name="model" default="$(find hector_quadrotor_description)/urdf/quadrotor.gazebo.xacro" />
+		<arg name="wp" default="$(arg path)" />
+		<arg name="spread" default="$(arg mavsize)" />
+		<arg name="asize" default="$(arg arena)" />
+	</include>
+
+</launch>

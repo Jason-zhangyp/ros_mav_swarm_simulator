@@ -1,0 +1,34 @@
+<package>
+  <name>mav_controller</name>
+  <version>1.0.0</version>
+  <description>This package serves to run the velocity controller of an MAV that uses relative localization (via a Bluetooth signal) and uses a VO scheme for collision avoidance with other MAVs </description>
+  <maintainer email="mariocoppola.92@gmail.com">Mario Coppola</maintainer>
+
+  <!-- One license tag required, multiple allowed, one license per tag -->
+  <!-- Commonly used license strings: -->
+  <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
+  <license>TODO</license>
+  <!-- <url type="website">http://wiki.ros.org/mav_controller</url> -->
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <run_depend>roscpp</run_depend>
+
+  <build_depend>roslib</build_depend>
+  <run_depend>roslib</run_depend>
+
+  <build_depend>std_msgs</build_depend>
+  <run_depend>std_msgs</run_depend>
+
+  <build_depend>gazebo_msgs</build_depend>
+  <run_depend>gazebo_msgs</run_depend>
+
+  <!-- Needed for Eigen -->
+  <build_depend>cmake_modules</build_depend>
+
+  <!-- Needed to send out the message -->
+<!--   <build_depend>message_generation</build_depend>
+  <run_depend>message_runtime</run_depend> -->
+  
+</package>

@@ -1,0 +1,26 @@
+<?xml version="1.0" ? standalone="no" ?>
+<sdf version="1.4">
+
+  <world name="default">
+
+    <physics type='ode'>
+      <!-- Rate of simulation = real_time_update_rate/max_step_size-->
+      <max_step_size>0.01000</max_step_size>
+      <real_time_factor>1.000000</real_time_factor>
+      <real_time_update_rate>3000.000000</real_time_update_rate>
+      <!-- <gravity>0.000000 0.000000 -9.800000</gravity> -->
+    </physics>
+
+	<!-- A global light source -->
+<!-- 	<include>
+		<uri>model://sun</uri>
+	</include> -->
+	
+	<!-- A ground plane -->
+	<include>
+		<uri>model://ground_plane</uri>
+	</include>
+
+  </world>
+
+</sdf>
